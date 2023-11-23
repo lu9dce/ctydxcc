@@ -15,6 +15,9 @@ function locate($licrx)
 {
     // Acceder a la variable global que contiene la información de la base de datos
     global $base;
+    
+    // Si la licencia contiene / la remplaza por \/
+    $licrx = str_replace(['\\', '/'], ['\\\\', '\\/'], $licrx);
 
     // Obtener la longitud de la licencia proporcionada
     $z = strlen($licrx);
@@ -27,7 +30,7 @@ function locate($licrx)
         // Iterar a través de la base de datos para encontrar coincidencias
         foreach ($base as $resultado) {
             // Crear una expresión regular para buscar la licencia recortada
-            $expresion_regular = '/\b ' . $licencia_recortada . ' \b/';
+            $expresion_regular = '/\b ' . $licencia_recortada . '\b/';
 
             // Verificar si la expresión regular coincide con la licencia en el resultado actual
             if (preg_match($expresion_regular, $resultado['licencia'])) {
@@ -50,5 +53,5 @@ function locate($licrx)
 }
 
 // Ejemplo imprimir el resultado de la función para la licencia 'NP3XF'
-print_r(locate('OK1VRV'));
+print_r(locate('7Q6M7/P'));
 ?>
