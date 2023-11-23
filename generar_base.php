@@ -21,7 +21,7 @@ while (($fila = fgetcsv($archivo)) !== false) {
 
     // Almacenar los datos relevantes en el array de resultados
     $resultados[] = array(
-        'licencia' => $aa,
+        'licencia' => $fila[1] . ' ' . $aa,
         'id' => $fila[2]
     );
 }

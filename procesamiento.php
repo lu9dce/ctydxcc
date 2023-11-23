@@ -50,5 +50,5 @@ function locate($licrx)
 }
 
 // Ejemplo imprimir el resultado de la función para la licencia 'NP3XF'
-print_r(locate('NP3XF'));
+print_r(locate('OK1VRV'));
 ?>
